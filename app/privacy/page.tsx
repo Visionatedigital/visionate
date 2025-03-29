@@ -21,49 +21,38 @@ export default function PrivacyPolicy() {
 
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold text-foreground">Information We Collect</h2>
-              <p>We collect information that you provide directly to us, including:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Contact information (name, email address, phone number)</li>
-                <li>Business information</li>
-                <li>Communication preferences</li>
-                <li>Feedback and correspondence</li>
-              </ul>
+              <p className="text-gray-600 mb-4">
+                We collect information that you provide directly to us, including when you create an account, make a purchase, sign up for our newsletter, or contact us for support. This information may include your name, email address, phone number, and any other information you choose to provide.
+              </p>
+              <p className="text-gray-600 mb-4">
+                We also automatically collect certain information when you visit our website, including your IP address, browser type, operating system, and other technical information about your device and how you interact with our website.
+              </p>
             </section>
 
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold text-foreground">How We Use Your Information</h2>
-              <p>We use the information we collect to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Provide, maintain, and improve our services</li>
-                <li>Communicate with you about our services</li>
-                <li>Respond to your requests and inquiries</li>
-                <li>Send you technical notices and updates</li>
-                <li>Detect and prevent fraud or abuse</li>
-              </ul>
+              <p className="text-gray-600 mb-4">
+                We use the information we collect to provide, maintain, and improve our services, to communicate with you, and to personalize your experience. We may also use this information to send you marketing communications (with your consent) and to comply with legal obligations.
+              </p>
             </section>
 
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold text-foreground">Data Security</h2>
-              <p>
-                We implement appropriate technical and organizational security measures to protect your information. However, no security system is impenetrable, and we cannot guarantee the security of our systems 100%.
+              <p className="text-gray-600 mb-4">
+                We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.
               </p>
             </section>
 
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold text-foreground">Your Rights</h2>
-              <p>You have the right to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Access your personal information</li>
-                <li>Correct inaccurate information</li>
-                <li>Request deletion of your information</li>
-                <li>Object to our use of your information</li>
-                <li>Withdraw consent</li>
-              </ul>
+              <p className="text-gray-600 mb-4">
+                You have the right to access, correct, or delete your personal information. You may also opt-out of receiving marketing communications from us at any time.
+              </p>
             </section>
 
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold text-foreground">Contact Us</h2>
-              <p>
+              <p className="text-gray-600 mb-4">
                 If you have any questions about this Privacy Policy, please contact us at{' '}
                 <a href="mailto:visionatedigital@gmail.com" className="text-primary hover:underline">
                   visionatedigital@gmail.com
@@ -73,8 +62,22 @@ export default function PrivacyPolicy() {
 
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold text-foreground">Updates to This Policy</h2>
-              <p>
-                We may update this Privacy Policy from time to time. The updated version will be indicated by an updated "Last Updated" date and the updated version will be effective as soon as it is accessible.
+              <p className="text-gray-600 mb-4">
+                We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-2xl font-semibold text-foreground">Cookies and Tracking Technologies</h2>
+              <p className="text-gray-600 mb-4">
+                We use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-2xl font-semibold text-foreground">Third-Party Links</h2>
+              <p className="text-gray-600 mb-4">
+                Our website may contain links to other websites. We are not responsible for the privacy practices of these other websites. We encourage you to read the privacy statements of each website you visit.
               </p>
             </section>
           </div>

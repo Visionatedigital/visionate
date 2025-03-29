@@ -2,6 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
@@ -93,7 +94,13 @@ const Navbar = () => {
       >
         <div className="mx-auto flex justify-between items-center">
           <Link href={"/"} className="flex items-center space-x-1">
-            <img src="/Visionate-Logo.svg" alt="Visionate Digital" className="h-8 w-auto" />
+            <Image
+              src="/Visionate-Logo.svg"
+              alt="Visionate Digital"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
+            />
             <span className="text-xl font-bold">Visionate Digital</span>
           </Link>
 

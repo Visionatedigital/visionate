@@ -343,105 +343,81 @@ const Hero = () => {
     },
   ];
 
+  const filteredContent = useMemo(() => {
+    const items = activeTab === "projects" ? projects : clients;
+    return activeCategory === "all"
+      ? items
+      : items.filter((item) => item.category === activeCategory);
+  }, [activeTab, activeCategory, projects, clients]);
+
   const renderContent = () => {
+    if (activeTab === "clients") {
+      return (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence>
+            {filteredContent.map((item) => {
+              const client = item as Client;
+              return (
+                <motion.div
+                  layout
+                  key={client.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="bg-card p-6 rounded-lg shadow-lg"
+                >
+                  <div className="flex items-center space-x-4 mb-4">
+                    <Image
+                      src={`/${client.image}`}
+                      alt={client.name}
+                      width={48}
+                      height={48}
+                      className="w-12 h-12"
+                    />
+                    <h3 className="text-xl font-semibold">{client.name}</h3>
+                  </div>
+                  <p className="text-gray-600">{client.description}</p>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
+      );
+    }
+
     return (
-      <AnimatePresence mode="wait">
-        {activeTab === "clients" ? (
-          <motion.div
-            layout
-            key="clients"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-12  gap-10 "
-          >
-            <AnimatePresence>
-              {clients
-                .filter(
-                  (client) =>
-                    activeCategory === "all" ||
-                    client.category === activeCategory
-                )
-                .map((client) => (
-                  <motion.div
-                    layout
-                    key={client.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="col-span-4 mb-12
-                    md:mb-0
-                    border p-4 "
-                  >
-                    <div className="relative h-32 mb-6">
-                      <Image
-                        priority
-                        height={100}
-                        width={100}
-                        src={`/${client.image}`}
-                        alt={client.name}
-                        className="object-contain w-full h-full  "
-                      />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4">{client.name}</h3>
-                    <p className="text-[#7b7b7b] leading-relaxed">
-                      {client.description}
-                    </p>
-                  </motion.div>
-                ))}
-            </AnimatePresence>
-          </motion.div>
-        ) : (
-          <motion.div
-            layout
-            key="projects"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-10"
-          >
-            <AnimatePresence>
-              {projects
-                .filter(
-                  (project) =>
-                    activeCategory === "all" ||
-                    project.category === activeCategory
-                )
-                .map((project) => (
-                  <motion.div
-                    layout
-                    key={project.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className={`${project.size}`}
-                  >
-                    <div className={`relative ${project.imageHeight} mb-4 `}>
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                      >
-                        <source src={project.video} type="video/mp4" />
-                      </video>
-                    </div>
-                    <h3 className="text-sm font-bold mb-2 text-gray-600">
-                      / {project.name}
-                    </h3>
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-gray-600">{project.description}</p>
-                  </motion.div>
-                ))}
-            </AnimatePresence>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <AnimatePresence>
+          {filteredContent.map((item) => {
+            const project = item as Project;
+            return (
+              <motion.div
+                layout
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className={`bg-card rounded-lg shadow-lg overflow-hidden ${project.size}`}
+              >
+                <div className={`relative ${project.imageHeight}`}>
+                  <video
+                    src={project.video}
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-gray-600">{project.description}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </div>
     );
   };
 

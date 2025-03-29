@@ -9,85 +9,82 @@ import Footer from "../footer";
 
 const services = [
   {
-    title: "AI Solutions",
-    description: `Our AI solutions help businesses automate processes, gain insights, and create personalized experiences. We specialize in developing custom AI models and integrating them into existing systems to help you achieve your business goals.`,
+    title: "AI & Machine Learning",
+    description: `Transform your business with our cutting-edge AI solutions. We develop and implement custom machine learning models, natural language processing systems, and computer vision applications that drive automation, enhance decision-making, and create intelligent experiences for your users.`,
     benefits: [
-      "AI Strategy",
-      "Machine Learning",
+      "Custom AI Models",
+      "Predictive Analytics",
       "Natural Language Processing",
       "Computer Vision",
-      "Predictive Analytics",
-      "AI Integration",
+      "Deep Learning",
+      "AI Automation",
     ],
-    image: "/ai.jpg",
-  },
-
-  {
-    title: "Branding",
-    description: `At the core of our approach, we maintain that brand and UX are closely connected and work together. Our team specializes in creating and representing digital brand identities across channels, providing strategy assistance and guidelines to ensure consistency. `,
-    benefits: [
-      "Brand Strategy",
-      "Brand Architecture",
-      "Verbal Identity",
-      "Visual Identity",
-      "Brand Guidelines",
-      "Brand Experiences",
-    ],
-    image: "/adidas.jpg",
+    image: "/AI.jpg",
   },
   {
-    title: "Digital Products",
-    description: `We create memorable enterprise and consumer products that drive real business value while delivering exceptional user experiences. Our comprehensive approach combines strategic thinking with cutting-edge design and technology to build products that users love. `,
+    title: "Digital Transformation",
+    description: `Navigate your organization's digital evolution with our comprehensive transformation services. We help businesses modernize their operations, implement cloud solutions, and create data-driven strategies that drive growth and innovation in the digital age.`,
     benefits: [
-      "Product Strategy",
-      "UX/UI Design",
-      "Design Systems",
-      "Mobile Applications",
-      "Web Applications",
-      "Product Analytics",
+      "Cloud Migration",
+      "Process Automation",
+      "Data Strategy",
+      "Digital Workflows",
+      "Legacy Modernization",
+      "Change Management",
     ],
-    image: "/nord.jpg",
+    image: "/digital-transformation.jpg",
   },
   {
-    title: "Websites",
-    description: `Our portfolio features award-winning websites designed to give users the best experience possible while meeting crucial business objectives. We combine stunning visual design with optimized performance and accessibility to create digital experiences that leave a lasting impression. `,
+    title: "Software Development",
+    description: `Build powerful, scalable software solutions that drive your business forward. Our expert development team creates custom applications, enterprise systems, and innovative digital products using the latest technologies and best practices in software engineering.`,
     benefits: [
-      "Website Design",
-      "Content Strategy",
-      "Performance Optimization",
-      "SEO Integration",
-      "Analytics Setup",
-      "Maintenance Services",
+      "Custom Software",
+      "API Development",
+      "Cloud Applications",
+      "Mobile Apps",
+      "Enterprise Solutions",
+      "DevOps Integration",
     ],
-    image: "/airbnb.jpg",
+    image: "/software-development.jpg",
   },
   {
-    title: "Content",
-    description: `We work with brands to identify their unique content needs and deliver custom-made assets at the highest quality. Our content strategy encompasses everything from initial concept development to final production, ensuring that every piece of content aligns with your brand's voice and business objectives. `,
+    title: "Data Analytics & BI",
+    description: `Turn your data into actionable insights with our advanced analytics and business intelligence solutions. We help you collect, process, and visualize data to uncover valuable insights, optimize operations, and make data-driven decisions.`,
     benefits: [
-      "Content Strategy",
-      "Copywriting",
-      "Video Production",
-      "Photography",
-      "Animation",
-      "Social Media Content",
+      "Data Visualization",
+      "Business Intelligence",
+      "Big Data Processing",
+      "Real-time Analytics",
+      "Predictive Modeling",
+      "Data Integration",
     ],
-    image: "/paypal.jpg",
+    image: "/Data-analytics.jpg",
   },
   {
-    title: "Development",
-    description: `Our designers and developers collaborate closely to create websites and products that provide exceptional user experiences and functionality.
-    
-    We specialize in building custom solutions that are tailored to your unique business needs, ensuring that your digital presence stands out from the competition. `,
+    title: "Cybersecurity",
+    description: `Protect your digital assets with our comprehensive cybersecurity services. We implement robust security measures, conduct thorough assessments, and provide ongoing monitoring to safeguard your systems, data, and users from evolving cyber threats.`,
     benefits: [
-      "Frontend Development",
-      "Backend Development",
-      "Mobile Development",
-      "API Integration",
-      "Performance Optimization",
-      "Technical Consulting",
+      "Security Assessment",
+      "Threat Detection",
+      "Incident Response",
+      "Cloud Security",
+      "Compliance Management",
+      "Security Training",
     ],
-    image: "/redbull.jpg",
+    image: "/Cybersecurity.jpg",
+  },
+  {
+    title: "IoT Solutions",
+    description: `Connect and optimize your physical operations with our Internet of Things (IoT) solutions. We design and implement smart systems that collect real-time data, automate processes, and create interconnected ecosystems for enhanced efficiency and innovation.`,
+    benefits: [
+      "IoT Architecture",
+      "Sensor Integration",
+      "Edge Computing",
+      "Real-time Monitoring",
+      "Smart Automation",
+      "IoT Analytics",
+    ],
+    image: "/IoT.jpg",
   },
 ];
 
@@ -102,11 +99,10 @@ const Services = () => {
         <div className="mx-auto flex items-center">
           <div className="md:w-2/3">
             <h1 className="text-4xl xl:text-6xl 2xl:text-7xl font-bold mb-8">
-              A full service digital innovation partner
+              Innovative Technology Solutions for the Digital Age
             </h1>
             <p className="text-xl text-neutral-500">
-              Our rich design and technology expertise delivers top brands and
-              digital experiences
+              Empowering businesses with cutting-edge AI, cloud solutions, and digital transformation services to drive growth and innovation
             </p>
           </div>
         </div>

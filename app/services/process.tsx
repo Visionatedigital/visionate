@@ -4,29 +4,29 @@ const Process = () => {
   const steps = [
     {
       number: "1",
-      title: "Discovery Call",
+      title: "Discovery & Needs Assessment",
       description:
-        "The first step sets the foundation for our collaboration. During this initial consultation, we'll discuss your project goals, requirements, and vision. This allows us to understand your needs better and establish clear expectations for the project ahead.",
+        "We start by understanding your business, challenges, and goals. Our team listens carefully to your needs, ensuring we tailor our AI solutions to fit seamlessly with your objectives.",
     },
     {
       number: "2",
-      title: "Research & Analysis",
+      title: "Data Analysis & AI Strategy",
       description:
-        "We conduct thorough market research and analyze your target audience, competitors, and industry trends. This critical phase helps us gather insights that will inform our strategy and ensure we create solutions that align with your business objectives.",
+        "Using advanced data analysis and AI capabilities, we dive into market trends, audience behavior, and your data. This research guides us in crafting a custom AI strategy that maximizes results.",
     },
     {
       number: "3",
-      title: "Design & Development",
+      title: "AI Design & Development",
       description:
-        "With a solid strategy in place, our team begins the creative process. We create comprehensive designs and develop solutions that align with your brand and goals. Regular check-ins ensure we're meeting your expectations and requirements throughout this phase.",
+        "With a robust strategy, we develop AI-driven solutions that integrate with your existing systems. Our team ensures each solution is scalable, efficient, and designed to bring you a competitive edge.",
     },
     {
       number: "4",
-      title: "Project Launch & Optimization",
+      title: "Deployment & Continuous Optimization",
       description:
-        "We carefully launch your project and monitor its performance. Our team provides ongoing support and makes necessary optimizations to ensure everything runs smoothly. We'll stay connected to address any questions and help you maximize the value of your investment.",
+        "We deploy your AI solution and closely monitor its performance. Our team uses real-time data and insights to optimize and fine-tune the system, ensuring it evolves and delivers consistent, measurable results.",
     },
-  ];
+];
 
   return (
     <div className="2xl:w-4/5 md:mx-auto py-32 md:pb-32  px-6 md:px-16 ">

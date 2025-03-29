@@ -7,8 +7,7 @@ import { Plus } from 'lucide-react';
 interface FAQItemProps {
     question: string;
     answer: string;
-    }
-
+}
 
 const FAQItem : React.FC<FAQItemProps> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,38 +49,34 @@ const FAQItem : React.FC<FAQItemProps> = ({ question, answer }) => {
 const Faq = () => {
   const faqData = [
     {
-      question: "What are your core services as a UX design and branding firm?",
-      answer: "We specialize in user experience design, brand identity development, and web design services that help businesses create meaningful connections with their audiences."
+      question: "What does Visionate Digital specialize in?",
+      answer: "Visionate Digital specializes in AI-powered software solutions that enhance business efficiency, automate processes, and provide data-driven insights. Our products range from AI-driven analytics to intelligent automation tools designed to help businesses scale."
     },
     {
-      question: "What separates Epic from other branding and web design agencies?",
-      answer: "Our unique approach combines strategic thinking with cutting-edge design practices, ensuring each project delivers both aesthetic excellence and measurable results."
+      question: "How can AI improve my business operations?",
+      answer: "AI can optimize workflows, reduce manual tasks, enhance customer interactions, and provide predictive insights for better decision-making. Our AI solutions are tailored to various industries, ensuring maximum efficiency and competitive advantage."
     },
     {
-      question: "Do you work with clients in different timezones?",
-      answer: "Yes, we have experience working with clients globally and maintain flexible communication schedules to accommodate different time zones."
+      question: "Is AI difficult to integrate into my existing systems?",
+      answer: "No, our AI solutions are designed for seamless integration. Whether you need automation, predictive analytics, or AI-enhanced customer support, our team ensures a smooth implementation process with minimal disruptions to your operations."
     },
     {
-      question: "How much does hiring you for a design project cost?",
-      answer: "Our pricing varies based on project scope and requirements. We offer customized solutions to meet different budget ranges while maintaining high-quality deliverables."
+      question: "Is AI secure, and how does Visionate Digital handle data privacy?",
+      answer: "Security and privacy are top priorities for us. Our AI systems comply with industry standards and regulations, utilizing advanced encryption and security protocols to protect your data. We also offer customizable privacy controls to fit your specific needs."
     },
     {
-      question: "What is your design process like?",
-      answer: "Our design process is collaborative and iterative, involving clients at every stage to ensure the final product meets their unique needs and goals while maintaining our high standards of quality."
+      question: "Can AI replace human jobs in my company?",
+      answer: "AI is meant to enhance productivity, not replace human workers. Our solutions automate repetitive tasks, allowing employees to focus on strategic and creative work, improving overall business performance and job satisfaction."
     },
     {
-        question: "How long does it take to complete a typical design project?",
-        answer: "The timeline for each project varies depending on its complexity and scope. We work closely with clients to establish realistic deadlines and ensure timely delivery."
+      question: "What industries benefit most from AI solutions?",
+      answer: "AI is versatile and can be applied across multiple industries, including finance, healthcare, retail, logistics, and customer service. Our AI-powered solutions are tailored to meet industry-specific challenges, driving efficiency and innovation."
     }
   ];
 
   return (
-    <div className=" 
-    
-    mx-auto 2xl:w-4/5 md:px-16
-    
-     px-6   py-16 pb-32 ">
-      <h1 className="text-4xl font-bold mb-12 ">FAQ</h1>
+    <div className="mx-auto 2xl:w-4/5 md:px-16 px-6 py-16 pb-32">
+      <h1 className="text-4xl font-bold mb-12">Frequently Asked Questions</h1>
       <div className="space-y-2">
         {faqData.map((item, index) => (
           <FAQItem

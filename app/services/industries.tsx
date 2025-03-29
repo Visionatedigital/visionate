@@ -5,107 +5,117 @@ const Industries = () => {
     {
       title: "Fintech",
       description:
-        "Financial technology solutions and digital banking services",
-      companies:
-        "Discover, Stripe, CreditKarma, STC Bank, MoneyLion, Marqeta, Quicken, Lulo Bank, Earnin, Fundbox, StreetBeat, Q2",
+        "Revolutionizing financial services with AI-powered marketing strategies, data insights, and personalized user experiences.",
+      companies: "Discover, Stripe, CreditKarma, STC Bank, MoneyLion, Marqeta, Quicken, Lulo Bank, Earnin, Fundbox, StreetBeat, Q2",
     },
     {
       title: "Insurance",
-      description: "Digital insurance platforms and insurtech solutions",
-      companies:
-        "StateFarm, Progressive, Geico, Lemonade, Oscar Health, MetLife",
+      description:
+        "Transforming the insurance industry with AI-driven risk assessment, customer engagement, and fraud detection solutions.",
+      companies: "StateFarm, Progressive, Geico, Lemonade, Oscar Health, MetLife",
     },
     {
       title: "Energy",
-      description: "Sustainable energy and power management systems",
-      companies:
-        "Shell, BP, Chevron, NextEra Energy, Duke Energy, Siemens Energy",
+      description:
+        "Optimizing energy management and sustainability efforts with AI-driven solutions for the power sector.",
+      companies: "Shell, BP, Chevron, NextEra Energy, Duke Energy, Siemens Energy",
     },
     {
       title: "B2B & Enterprise Software",
-      description: "Enterprise-grade software solutions",
-      companies:
-        "Slack, ADP, VMware, Okta, Splunk, Nutanix, Zenefits, Comscore, Papaya, TeamViewer, Cornerstone, WorkBoard, AppDynamics",
+      description:
+        "Enhancing enterprise operations with AI-powered solutions for automation, analytics, and security.",
+      companies: "Slack, ADP, VMware, Okta, Splunk, Nutanix, Zenefits, Comscore, Papaya, TeamViewer, Cornerstone, WorkBoard, AppDynamics",
     },
     {
       title: "Crypto & Web3",
-      description: "Blockchain technology and decentralized applications",
+      description:
+        "Driving blockchain innovation with AI-powered analytics and security solutions for decentralized applications.",
       companies: "Coinbase, Binance, Ripple, OpenSea, MetaMask, Alchemy",
     },
     {
       title: "Technology",
-      description: "Cutting-edge technology solutions and services",
+      description:
+        "Positioning tech innovators as industry leaders through AI-based digital strategies and advanced analytics.",
       companies: "Microsoft, Google, Apple, Amazon, IBM, Intel, Oracle",
     },
     {
       title: "Ecommerce & Fashiotech",
-      description: "Digital retail and fashion technology",
+      description:
+        "Boosting online sales and engagement through AI-enhanced targeting, conversion optimization, and dynamic content strategies.",
       companies: "Shopify, ASOS, Farfetch, StitchFix, Rent the Runway, ThredUp",
     },
     {
       title: "Electronics",
-      description: "Electronic systems and component solutions",
+      description:
+        "Innovating the electronics industry with AI-driven automation, smart devices, and predictive analytics.",
       companies: "Samsung, Sony, LG, Panasonic, Xiaomi, TSMC",
     },
     {
       title: "Food & Beverages",
-      description: "Food service and beverage industry solutions",
+      description:
+        "Enhancing the food and beverage industry with AI-driven customer engagement, logistics, and supply chain optimization.",
       companies: "Coca-Cola, PepsiCo, Nestlé, DoorDash, Uber Eats, Blue Apron",
     },
     {
       title: "Startups & VC",
-      description: "Solutions for startups and venture capital firms",
-      companies:
-        "Sequoia, Andreessen Horowitz, Y Combinator, TechStars, 500 Startups",
+      description:
+        "Helping startups scale quickly with AI-enhanced digital marketing, from lead generation to brand positioning.",
+      companies: "Sequoia, Andreessen Horowitz, Y Combinator, TechStars, 500 Startups",
     },
     {
       title: "Healthcare & Life Sciences",
-      description: "Healthcare technology and life science solutions",
-      companies:
-        "Johnson & Johnson, Pfizer, Moderna, Illumina, Epic Systems, Cerner",
+      description:
+        "Empowering healthcare providers and life sciences organizations with AI-driven solutions for marketing, patient engagement, and data analysis.",
+      companies: "Johnson & Johnson, Pfizer, Moderna, Illumina, Epic Systems, Cerner",
     },
     {
       title: "Telecommunications",
-      description: "Communication infrastructure and services",
+      description:
+        "Enhancing communication infrastructure with AI-powered network optimization and customer service automation.",
       companies: "AT&T, Verizon, T-Mobile, Vodafone, Orange, Deutsche Telekom",
     },
     {
       title: "Mobility",
-      description: "Transportation and mobility solutions",
+      description:
+        "Revolutionizing transportation with AI-driven fleet management, navigation, and ride-sharing solutions.",
       companies: "Uber, Lyft, Bird, Lime, Via, BlaBlaCar",
     },
     {
       title: "Logistics",
-      description: "Supply chain and logistics management",
+      description:
+        "Optimizing supply chain and logistics operations with AI-powered predictive analytics and automation.",
       companies: "FedEx, UPS, DHL, Maersk, Flexport, XPO Logistics",
     },
     {
       title: "Manufacturing & Automotive",
-      description: "Industrial manufacturing and automotive solutions",
+      description:
+        "Leveraging AI to streamline marketing efforts for automotive and manufacturing companies, optimizing lead generation and sales.",
       companies: "Tesla, Ford, BMW, Toyota, General Motors, Siemens",
     },
     {
       title: "Agriculture",
-      description: "Agricultural technology and farming solutions",
-      companies:
-        "John Deere, Corteva, Bayer, Indigo Ag, Farmers Business Network",
+      description:
+        "Innovating agricultural technology with AI-powered solutions for precision farming and crop monitoring.",
+      companies: "John Deere, Corteva, Bayer, Indigo Ag, Farmers Business Network",
     },
     {
       title: "Architecture & Construction",
-      description: "Building design and construction technology",
+      description:
+        "Advancing construction technology with AI-driven project management, design optimization, and safety monitoring.",
       companies: "Autodesk, Procore, PlanGrid, Trimble, Bentley Systems",
     },
     {
       title: "Government & Specialty Projects",
-      description: "Public sector and specialized project solutions",
+      description:
+        "Supporting public sector initiatives with AI-powered data security, analytics, and digital transformation.",
       companies: "Palantir, Booz Allen Hamilton, SAIC, Leidos, CACI",
     },
     {
       title: "Non-Profits",
-      description: "Technology solutions for non-profit organizations",
-      companies:
-        "Gates Foundation, Red Cross, UNICEF, World Wildlife Fund, Charity: Water",
-    },
+      description:
+        "Enhancing impact-driven organizations with AI-powered fundraising, outreach, and engagement strategies.",
+      companies: "Gates Foundation, Red Cross, UNICEF, World Wildlife Fund, Charity: Water",
+    }
   ];
 
   return (

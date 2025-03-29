@@ -10,8 +10,24 @@ const font = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Awesome Studio",
-  description: "A full-service digital innovation partner ",
+  title: "Visionate Digital",
+  description: "Innovative Technology Solutions for the Digital Age",
+  icons: {
+    icon: '/Visionate-Logo.svg',
+    apple: '/Visionate-Logo.svg',
+  },
+  openGraph: {
+    title: 'Visionate Digital',
+    description: 'Innovative Technology Solutions for the Digital Age',
+    images: [
+      {
+        url: '/Visionate-Logo.svg',
+        width: 800,
+        height: 600,
+        alt: 'Visionate Digital Logo',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -5,123 +5,71 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-const projects = [
-    {
-      src: "/adidas.jpg",
-      name: "Adidas",
-      logo: "/adidas-logo.png",
-      description: "Created Adidas back to school campaign",
-      className: "",
-    },
-    {
-      src: "/airbnb.jpg",
-      name: "Airbnb",
-      logo: "/airbnb-logo.png",
-      description: "Designed Airbnb landing page",
-      className: "",
-    },
-    {
-      src: "/audi.jpg",
-      name: "Audi",
-      logo: "/audi-logo.png",
-      description: "Developed Audi car configurator",
-  
-      className: "",
-    },
-    {
-      src: "/paypal.jpg",
-      name: "Paypal",
-      logo: "/paypal-logo.png",
-      description: "Integrated Paypal payment gateway",
-  
-      className: "",
-    },
-    {
-      src: "/sony.jpg",
-      name: "Sony",
-      logo: "/sony-logo.png",
-      description: "Developed Sony Playstation website",
-  
-      className: "",
-    },
-    {
-      src: "/under-armour.jpg",
-      name: "Under Armour",
-      logo: "/under-armour-logo.png",
-      description: "Designed Under Armour fitness app",
-  
-      className: "",
-    },
-    {
-      src: "/redbull.jpg",
-      name: "Redbull",
-      logo: "/redbull-logo.png",
-      description: "Created Redbull energy drink campaign",
-  
-      className: "",
-    },
-    {
-      src: "/spalding.jpg",
-      name: "Spalding",
-      logo: "/spalding-logo.png",
-      description: "Designed Spalding basketball landing page",
-  
-      className: "",
-    },
-    {
-      src: "/visa.jpg",
-      name: "Visa",
-      logo: "/visa-logo.png",
-      description: "Integrated Visa payment gateway",
-  
-      className: "",
-    },
-    {
-      src: "/nord.jpg",
-      name: "Nordstrom",
-      logo: "/nord-logo.png",
-      description: "Designed Nordstrom ecommerce website",
-  
-      className: "",
-    },
-    {
-      src: "/zara.jpeg",
-      name: "Zara",
-      logo: "/zara-logo.png",
-      description: "Created Zara fashion campaign",
-  
-      className: "",
-    },
-  ];
+interface Project {
+  src: string;
+  name: string;
+  logo: string;
+  description: string;
+  className: string;
+  details?: {
+    fullDescription: string;
+    services: string[];
+  };
+}
 
-const firstRow = projects.slice(0, projects.length);
-const secondRow = projects.slice(3, projects.length);
-const thirdRow = projects.slice(6, projects.length);
+const projects: Project[] = [
+    {
+      src: "/student-reading.jpg",
+      name: "AI-Powered E-Learning Platform",
+      logo: "/afrolearn-logo.png",
+      description: "Afro-Learn is an innovative e-learning platform that integrates AI tutors to provide personalized learning experiences.",
+      className: "",
+    },
+    {
+      src: "/agri-ai(2).jpg",
+      name: "Agri AI",
+      logo: "/agriai-logo.png",
+      description: "Smart Agriculture with AI for precision farming and crop monitoring",
+      className: "",
+    },
+    {
+      src: "/architect.jpg",
+      name: "Studiosix",
+      logo: "/studiosix.svg",
+      description: "AI-Powered Creative Studio",
+      className: "",
+    },
+    {
+      src: "/banking.jpg",
+      name: "Vido",
+      logo: "",
+      description: "Integrated payment gateway",
+      className: "",
+    },
+];
 
+// Option 1: Display all projects in each column for better visual effect
+const allProjects = [...projects, ...projects]; // Duplicate projects for continuous scroll
+const firstRow = allProjects;
+const secondRow = [...allProjects].reverse(); // Reverse order for variety
+const thirdRow = allProjects;
 
 const ReviewCard = ({
     src,
     name,
     description,
-    onClick,
-  }: {
-    src: string;
-    name: string;
-    description: string;
-    onClick: () => void;
-  }) => {
+  }: Pick<Project, 'src' | 'name' | 'description'>) => {
     return (
       <motion.figure
-        className="relative cursor-pointer overflow-hidden group"
-        onClick={onClick}
+        className="relative overflow-hidden group mb-6"
       >
         <div className="relative">
           <Image
             width={500}
             height={500}
             src={src}
-            alt="projects"
-            className="object-cover w-full"
+            alt={name}
+            className="object-cover w-full h-[300px] rounded-lg"
           />
           <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/60 to-transparent w-full">
             <h3 className="text-white text-xl font-semibold">{name}</h3>
@@ -132,13 +80,11 @@ const ReviewCard = ({
     );
   };
 
-
-
 const ProjectDetails = ({
     project,
     onClose,
   }: {
-    project: (typeof projects)[0];
+    project: Project;
     onClose: () => void;
   }) => {
     return (
@@ -147,11 +93,11 @@ const ProjectDetails = ({
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className="fixed right-0 top-0 h-full  md:w-2/5 bg-white shadow-lg p-6 z-50 cursor-pointer"
+        className="fixed right-0 top-0 h-full  md:w-2/5 bg-white shadow-lg p-6 z-50 cursor-pointer overflow-y-auto"
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
         >
           ×
         </button>
@@ -165,24 +111,30 @@ const ProjectDetails = ({
             height={300}
             className="w-full rounded-lg mb-6 object-cover h-60"
           />
-          <p className="text-gray-600 mb-4">{project.description}</p>
+          <p className="text-gray-600 mb-4">{project.details?.fullDescription || project.description}</p>
   
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Project Details</h3>
-            <p className="text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <h3 className="font-semibold text-lg">Services</h3>
             <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
-                Web Design
-              </span>
-              <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
-                Branding
-              </span>
-              <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
-                UI/UX
-              </span>
+              {project.details?.services ? (
+                project.details.services.map((service, index) => (
+                  <span key={index} className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    {service}
+                  </span>
+                ))
+              ) : (
+                <>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    Web Design
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    Branding
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    UI/UX
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -190,11 +142,8 @@ const ProjectDetails = ({
     );
   };
 
-
-  export function Projects() {
-    const [selectedProject, setSelectedProject] = useState<
-      (typeof projects)[0] | null
-    >(null);
+export function Projects() {
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
     return (
       <section className="w-full bg-white py-16 md:mx-auto 2xl:w-4/5 md:px-16">
@@ -211,42 +160,36 @@ const ProjectDetails = ({
           <Marquee
             vertical
             pauseOnHover
-            className="[--duration:60s]"
-            paused={selectedProject !== null}
+            className="[--duration:40s] px-2"
           >
-            {firstRow.map((review, index) => (
+            {firstRow.map((project, index) => (
               <ReviewCard
                 key={index}
-                {...review}
-                onClick={() => setSelectedProject(review)}
+                {...project}
               />
             ))}
           </Marquee>
           <Marquee
             vertical
             pauseOnHover
-            className="[--duration:60s]"
-            paused={selectedProject !== null}
+            className="[--duration:50s] px-2"
           >
-            {secondRow.map((review, index) => (
+            {secondRow.map((project, index) => (
               <ReviewCard
                 key={index}
-                {...review}
-                onClick={() => setSelectedProject(review)}
+                {...project}
               />
             ))}
           </Marquee>
           <Marquee
             vertical
             pauseOnHover
-            className="[--duration:60s] hidden md:flex"
-            paused={selectedProject !== null}
+            className="[--duration:45s] hidden md:flex px-2"
           >
-            {thirdRow.map((review, index) => (
+            {thirdRow.map((project, index) => (
               <ReviewCard
                 key={index}
-                {...review}
-                onClick={() => setSelectedProject(review)}
+                {...project}
               />
             ))}
           </Marquee>
@@ -257,9 +200,9 @@ const ProjectDetails = ({
             <>
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.5 }}
+                animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-black z-40"
+                className="fixed inset-0 bg-black/40 z-40"
                 onClick={() => setSelectedProject(null)}
               />
               <ProjectDetails

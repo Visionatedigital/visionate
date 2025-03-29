@@ -115,9 +115,9 @@ const Hero = () => {
             variants={contentVariants}
             className="text-xl text-[#7b7b7b] mb-8"
           >
-            At Awesome Studio designs come
+            At Visionate Digital, innovation meets execution. 
             <br />
-            to life with our great team
+            We transform ideas into reality with AI-driven solutions and cutting-edge digital experiences.
           
           </motion.p>
 
@@ -136,7 +136,7 @@ const Hero = () => {
             </Link>
 
             <motion.a
-              href="https://meetings.hubspot.com/productizedos/epic-labs?uuid=fca92f30-4111-4445-9498-af335bb840af"
+              href="https://calendly.com/visionatedigital/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-red-500 text-white

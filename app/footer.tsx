@@ -11,20 +11,23 @@ import {
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-  const [subscriptionStatus, setSubscriptionStatus] = useState("");
+  const [subscriptionStatus, setSubscriptionStatus] = useState<{
+    type: 'success' | 'error';
+    message: string;
+  } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const mainLinks = [
     { name: "Projects", href: "/projects" },
     { name: "Services", href: "/services" },
-
     { name: "Clients", href: "/projects" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
   const legalLinks = [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
+    { name: "Privacy", href: "/privacy" },
+    { name: "Terms", href: "/terms" },
     { name: "Sitemap", href: "#" },
   ];
 
@@ -35,13 +38,40 @@ const Footer = () => {
     { icon: PiTwitterLogo, href: "#" },
   ];
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (email) {
-      // Here you would typically make an API call to your backend
-      setSubscriptionStatus("success");
-      setEmail("");
-      setTimeout(() => setSubscriptionStatus(""), 3000);
+    if (!email) return;
+
+    setIsSubmitting(true);
+    setSubscriptionStatus(null);
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to subscribe');
+      }
+
+      setSubscriptionStatus({
+        type: 'success',
+        message: data.message,
+      });
+      setEmail('');
+    } catch (error) {
+      setSubscriptionStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Failed to subscribe. Please try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -54,15 +84,15 @@ const Footer = () => {
           <div>
             <h2 className="text-4xl font-bold mb-4">Let&apos;s Talk!</h2>
             <a
-              href="mailto:hi@email.com"
+              href="mailto:visionatedigital@gmail.com"
               className="text-xl hover:underline inline-block mb-8"
             >
-              hi@email.com
+              visionatedigital@gmail.com
             </a>
             <p className="text-gray-600">
-              1233 street, Paris France
+              51 Highveld Road
               <br />
-              Paris France 1234
+              Kempton Park, Johannesburg
             </p>
           </div>
 
@@ -110,21 +140,24 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="mt-2 w-full bg-black
-                   text-white px-4 py-2  hover:bg-gray-800 transition-colors duration-200"
+                  disabled={isSubmitting}
+                  className="mt-2 w-full bg-black text-white px-4 py-2 hover:bg-gray-800 
+                  transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Subscribe
+                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                 </button>
               </div>
-              {subscriptionStatus === "success" && (
-                <p className="text-black text-sm">Thanks for subscribing!</p>
+              {subscriptionStatus && (
+                <p className={`text-sm ${subscriptionStatus.type === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                  {subscriptionStatus.message}
+                </p>
               )}
             </form>
           </div>
         </div>
 
-          {/* Bottom section */}
-          <div
+        {/* Bottom section */}
+        <div
           className="flex flex-col md:flex-row 
         justify-between items-start md:items-center pt-8 border-t border-gray-200"
         >
@@ -158,10 +191,8 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="text-[#7b7b7b] text-sm">© 2025 Epic Labs, Inc</div>
+          <div className="text-[#7b7b7b] text-sm">© Visionate Digital PTY 2024</div>
         </div>
-
-
       </div>
     </footer>
   );

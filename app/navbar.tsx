@@ -93,8 +93,8 @@ const Navbar = () => {
       >
         <div className="mx-auto flex justify-between items-center">
           <Link href={"/"} className="flex items-center space-x-1">
-            <div className="rounded-full bg-black w-6 h-6 " />
-            <span className="text-xl font-bold">Awesome Studio</span>
+            <img src="/Visionate-Logo.svg" alt="Visionate Digital" className="h-8 w-auto" />
+            <span className="text-xl font-bold">Visionate Digital</span>
           </Link>
 
           {/* desktop menu */}

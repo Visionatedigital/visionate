@@ -1,6 +1,5 @@
 import Navbar from "../navbar";
 import Culture from "./culture";
-import Team from "./team";
 
 const About = () => {
   return (
@@ -24,7 +23,6 @@ const About = () => {
       </div>
 
       <Culture />
-      <Team />
     </div>
   );
 };

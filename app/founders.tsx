@@ -32,11 +32,11 @@ interface Founder {
 
 const founders: Founder[] = [
     {
-      name: "Alex Johnson",
-      role: "CEO & Founder",
-      image: "/image-1.jpg",
+      name: "Kibuuka Mark Brian",
+      role: "CEO & Co-Founder",
+      image: "/kibuuka-mark.jpg",
       description:
-        "Leading our vision with over a decade of experience in AI and business strategy",
+        "Leading our vision with expertise in AI and business strategy, driving innovation and growth across our projects.",
       social: {
         linkedin: "https://linkedin.com",
         twitter: "https://twitter.com",
@@ -44,92 +44,15 @@ const founders: Founder[] = [
       },
     },
     {
-      name: "Jamie Lee",
-      role: "CTO",
-      image: "/image-2.jpg",
+      name: "Shammah Kahnagi Gordon",
+      role: "CFO & Co-Founder",
+      image: "/shammah-gordon.jpg",
       description:
-        "Expert in AI technologies, driving innovation and technical excellence across our projects",
+        "Managing our financial strategy and operations, ensuring sustainable growth and business excellence.",
       social: {
         linkedin: "https://linkedin.com",
         twitter: "https://twitter.com",
         website: "https://website.com",
-      },
-    },
-    {
-      name: "Morgan Smith",
-      role: "Marketing Director",
-      image: "/image-3.jpg",
-      description:
-        "Crafting impactful marketing strategies that resonate with our clients and their audiences",
-      social: {
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
-      },
-    },
-    {
-      name: "Taylor Brown",
-      role: "Lead Developer",
-      image: "/image-4.jpg",
-      description:
-        "Creating innovative solutions with our expert development team",
-      social: {
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
-      },
-    },
-    {
-      name: "Chris White",
-      role: "Head of Design",
-      image: "/image-4.jpg",
-      description:
-        "Driving creative direction and design excellence across all our projects",
-      social: {
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
-      },
-    },
-    {
-      name: "Emily Green",
-      role: "Product Manager",
-      image: "/image-5.jpg",
-      description:
-        "Leading product development and strategy with a focus on user experience",
-      social: {
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
-      },
-    },
-    {
-      name: "Ethan Black",
-      role: "Data Scientist",
-      image: "/image-6.jpg",
-      description:
-        "Applying advanced data science techniques to drive insights and innovation",
-      social: {
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
-      },
-    },
-    {
-      name: "Ava Brown",
-      role: "Customer Success",
-      image: "/image-7.jpg",
-      description:
-        "Ensuring our clients receive the best possible service and support",
-      social: {
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
-      },
-    },
-    {
-      name: "Noah White",
-      role: "Business Development",
-      image: "/image-1.jpg",
-      description:
-        "Building relationships and driving growth through strategic partnerships",
-      social: {
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
       },
     },
   ];
@@ -141,7 +64,7 @@ const founders: Founder[] = [
 const Founders = () => {
 
     const [startIndex, setStartIndex] = useState(0);
-    const [itemsToShow, setItemsToShow] = useState(4);
+    const [itemsToShow, setItemsToShow] = useState(2);
     const [isMobile, setIsMobile] = useState(false);
 
 
@@ -198,9 +121,9 @@ const Founders = () => {
         const handleResize = () => {
           const mobile = window.innerWidth < 768;
           setIsMobile(mobile);
-          setItemsToShow(mobile ? 2 : 4);
+          setItemsToShow(mobile ? 1 : 2);
           setStartIndex((prev) => {
-            const maxStart = founders.length - (mobile ? 2 : 4);
+            const maxStart = founders.length - (mobile ? 1 : 2);
             return prev > maxStart ? maxStart : prev;
           });
         };
@@ -263,10 +186,10 @@ const Founders = () => {
         <div className="flex justify-between items-center mb-12">
           <div>
             <h2 className="text-3xl font-bold mb-2">
-              Trusted by 400+ Business Owners
+              Meet Our Founders
             </h2>
             <p className="text-gray-600">
-              Meet the passionate experts driving our AI solutions.
+              The visionaries behind Visionate Digital
             </p>
           </div>
           <div className="hidden md:flex gap-2">
@@ -282,7 +205,7 @@ const Founders = () => {
         <div className="relative max-w-full overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
               key={startIndex}
               variants={container}
               initial="hidden"
@@ -301,9 +224,9 @@ const Founders = () => {
                 <motion.div
                   key={`${founder.name}-${index}`}
                   variants={item}
-                  className="md:mb-0 mb-8"
+                  className="flex flex-col items-center text-center"
                 >
-                  <div className="bg-gray-100 aspect-square mb-4 overflow-hidden">
+                  <div className="bg-gray-100 aspect-square w-full max-w-[300px] mb-6 overflow-hidden rounded-lg">
                     <Image
                       priority
                       width={500}
@@ -313,26 +236,35 @@ const Founders = () => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="font-bold text-lg mb-1">{founder.name}</h3>
-                  <p className="text-[#7b7b7b] text-sm mb-2">{founder.role}</p>
-                  <p className="text-gray-700 text-sm mb-4">
+                  <h3 className="font-bold text-xl mb-2">{founder.name}</h3>
+                  <p className="text-[#7b7b7b] text-base mb-3">{founder.role}</p>
+                  <p className="text-gray-700 text-base mb-6 max-w-md">
                     {founder.description}
                   </p>
-                  <div className="flex gap-4">
-                    <motion.div
+                  <div className="flex gap-6">
+                    <motion.a
+                      href={founder.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.15 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <PiLinkedinLogo className="w-5 h-5 text-[#7b7b7b] hover:text-gray-900 cursor-pointer" />
-                    </motion.div>
-                    <motion.div
+                      <PiLinkedinLogo className="w-6 h-6 text-[#7b7b7b] hover:text-gray-900 cursor-pointer" />
+                    </motion.a>
+                    <motion.a
+                      href={founder.social.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.15 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <PiTwitterLogo className="w-5 h-5 text-[#7b7b7b] hover:text-gray-900 cursor-pointer" />
-                    </motion.div>
+                      <PiTwitterLogo className="w-6 h-6 text-[#7b7b7b] hover:text-gray-900 cursor-pointer" />
+                    </motion.a>
                     {founder.social.website && (
-                      <motion.div
+                      <motion.a
+                        href={founder.social.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.15 }}
                         transition={{
                           type: "spring",
@@ -340,8 +272,8 @@ const Founders = () => {
                           damping: 17,
                         }}
                       >
-                        <PiGlobe className="w-5 h-5 text-[#7b7b7b] hover:text-gray-900 cursor-pointer" />
-                      </motion.div>
+                        <PiGlobe className="w-6 h-6 text-[#7b7b7b] hover:text-gray-900 cursor-pointer" />
+                      </motion.a>
                     )}
                   </div>
                 </motion.div>

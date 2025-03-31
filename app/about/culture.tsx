@@ -26,34 +26,6 @@ const CultureValue: React.FC<Value> = ({ title, description }) => {
 };
 
 const Culture = () => {
-  const values = [
-    {
-      title: "Ambitious execution",
-      description:
-        "A technically flawless deliverable should be no exception. Our creativity ensures that we bring you the unexpected.",
-    },
-    {
-      title: "Promises kept",
-      description:
-        "Our promises are well thought out. What we say, we do. What we don't know, we find someone who does (and they're the best). That's Grandpa's lesson.",
-    },
-    {
-      title: "Genuine interest",
-      description:
-        "Understanding, helping, learning—that's how we approach relationships. Everyone receives top-notch treatment, without exception.",
-    },
-    {
-      title: "Playful spirit",
-      description:
-        "Like us, Bruno was a child at heart: curious, filled with wonder, and intense. The day we lose that is the day we step aside.",
-    },
-    {
-      title: "Provoked luck",
-      description:
-        "Luck is an attitude. We don't wait for opportunities—we create them. We try, we learn, we succeed, and we start again. In short, we sow and we reap.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       <div
@@ -73,15 +45,33 @@ const Culture = () => {
             /Culture
           </p>
           <div className="text-[#7b7b7b] max-w-3xl">
-            At Awesome Studio we believe that our culture is the foundation of our
-            success. Our values are the guiding principles that help us achieve
-            our goals and create a positive work environment. Here are the
-            values that define us:
+            At Visionate Digital, we believe that artificial intelligence is the key to transforming businesses and society. Our culture is built on innovation, technical excellence, and a commitment to ethical AI development. Here are the core values that drive our mission to empower businesses with AI:
           </div>
         </motion.div>
 
         <div className="space-y-2">
-          {values.map((value, index) => (
+          {[
+            {
+              title: "Innovation in AI",
+              description: "We constantly push the boundaries of what's possible with artificial intelligence, developing cutting-edge solutions that solve real-world problems."
+            },
+            {
+              title: "Technical Excellence",
+              description: "Our team maintains the highest standards in AI development, ensuring robust, scalable, and efficient solutions that deliver measurable results."
+            },
+            {
+              title: "Ethical AI",
+              description: "We are committed to developing AI solutions that are fair, transparent, and aligned with ethical principles, ensuring responsible technology deployment."
+            },
+            {
+              title: "Client Success",
+              description: "We focus on delivering AI solutions that drive tangible business value, helping our clients achieve their goals through data-driven insights."
+            },
+            {
+              title: "Continuous Learning",
+              description: "In the rapidly evolving field of AI, we maintain a culture of continuous learning and adaptation to stay at the forefront of technological advancement."
+            }
+          ].map((value, index) => (
             <CultureValue
               key={index}
               title={value.title}

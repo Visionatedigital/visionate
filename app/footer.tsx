@@ -33,9 +33,9 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: PiFacebookLogo, href: "#" },
-    { icon: PiInstagramLogo, href: "#" },
-    { icon: PiLinkedinLogo, href: "#" },
-    { icon: PiTwitterLogo, href: "#" },
+    { icon: PiInstagramLogo, href: "https://www.instagram.com/visionate_digital/" },
+    { icon: PiLinkedinLogo, href: "https://www.linkedin.com/company/105702462/admin/dashboard/" },
+    { icon: PiTwitterLogo, href: "https://x.com/visionate_media" },
   ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

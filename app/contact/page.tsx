@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import Navbar from '../navbar';
+import Footer from '../footer';
 import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
@@ -211,6 +212,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 } 

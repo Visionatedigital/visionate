@@ -24,13 +24,21 @@ const projects: Project[] = [
       logo: "/afrolearn-logo.png",
       description: "Afro-Learn is an innovative e-learning platform that integrates AI tutors to provide personalized learning experiences.",
       className: "",
+      details: {
+        fullDescription: "Afro-Learn revolutionizes education through AI-powered personalized learning. Our platform uses advanced machine learning algorithms to adapt content delivery, track student progress, and provide real-time feedback. The AI tutors can understand student learning patterns and adjust teaching methods accordingly.",
+        services: ["AI Tutoring", "Personalized Learning", "Progress Tracking", "Adaptive Content", "Real-time Analytics"]
+      }
     },
     {
-      src: "/agri-ai(2).jpg",
+      src: "/Agri-ai-system.jpg",
       name: "Agri AI",
       logo: "/agriai-logo.png",
       description: "Smart Agriculture with AI for precision farming and crop monitoring",
       className: "",
+      details: {
+        fullDescription: "Agri AI leverages computer vision and machine learning to transform traditional farming. Our system provides real-time crop health monitoring, pest detection, and yield prediction. Farmers receive AI-driven insights for optimal irrigation, fertilization, and harvesting decisions.",
+        services: ["Computer Vision", "Predictive Analytics", "Crop Monitoring", "Pest Detection", "Yield Prediction"]
+      }
     },
     {
       src: "/architect.jpg",
@@ -38,13 +46,32 @@ const projects: Project[] = [
       logo: "/studiosix.svg",
       description: "AI-Powered Creative Studio",
       className: "",
+      details: {
+        fullDescription: "Studiosix combines artificial intelligence with creative design to revolutionize the creative industry. Our AI-powered platform assists designers with automated layout suggestions, color palette generation, and content optimization based on data-driven insights.",
+        services: ["AI Design", "Layout Generation", "Color Analysis", "Content Optimization", "Design Automation"]
+      }
     },
     {
       src: "/banking.jpg",
       name: "Vido",
       logo: "",
-      description: "Integrated payment gateway",
+      description: "AI-Enhanced Financial Platform",
       className: "",
+      details: {
+        fullDescription: "Vido is a next-generation financial platform that integrates AI for fraud detection, risk assessment, and personalized financial recommendations. Our system uses advanced algorithms to provide real-time transaction monitoring and predictive analytics for better financial decision-making.",
+        services: ["Fraud Detection", "Risk Assessment", "Financial Analytics", "Transaction Monitoring", "AI Recommendations"]
+      }
+    },
+    {
+      src: "/traffic-ticketing-system.jpg",
+      name: "Smart Traffic Ticketing System",
+      logo: "",
+      description: "AI-powered traffic management system for automated ticketing and law enforcement",
+      className: "",
+      details: {
+        fullDescription: "Our Smart Traffic Ticketing System uses AI and computer vision to automate traffic monitoring and enforcement. The system can detect traffic violations, identify vehicles, and generate tickets automatically while maintaining high accuracy and reducing manual intervention.",
+        services: ["Computer Vision", "License Plate Recognition", "Violation Detection", "Automated Ticketing", "Real-time Monitoring"]
+      }
     },
 ];
 
@@ -61,15 +88,15 @@ const ReviewCard = ({
   }: Pick<Project, 'src' | 'name' | 'description'>) => {
     return (
       <motion.figure
-        className="relative overflow-hidden group mb-6"
+        className="relative overflow-hidden group mb-6 aspect-square"
       >
-        <div className="relative">
+        <div className="relative h-full">
           <Image
             width={500}
             height={500}
             src={src}
             alt={name}
-            className="object-cover w-full h-[300px] rounded-lg"
+            className="object-cover w-full h-full rounded-lg"
           />
           <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/60 to-transparent w-full">
             <h3 className="text-white text-xl font-semibold">{name}</h3>
@@ -144,6 +171,19 @@ const ProjectDetails = ({
 
 export function Projects() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+  
+    const nextProject = () => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+      );
+    };
+
+    const previousProject = () => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+      );
+    };
   
     return (
       <section className="w-full bg-white py-16 md:mx-auto 2xl:w-4/5 md:px-16">
@@ -156,43 +196,79 @@ export function Projects() {
           </p>
         </div>
   
-        <div className="w-full h-[800px] flex items-center justify-center overflow-hidden py-8">
-          <Marquee
-            vertical
-            pauseOnHover
-            className="[--duration:40s] px-2"
-          >
-            {firstRow.map((project, index) => (
-              <ReviewCard
+        <div className="relative px-6 md:px-0">
+          <div className="flex items-center justify-center">
+            <button
+              onClick={previousProject}
+              className="absolute left-0 z-10 p-2 rounded-full bg-white/80 shadow-lg hover:bg-white transition-colors"
+              aria-label="Previous project"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+
+            <div className="w-full max-w-[500px] overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="cursor-pointer"
+                  onClick={() => setSelectedProject(projects[currentIndex])}
+                >
+                  <ReviewCard {...projects[currentIndex]} />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <button
+              onClick={nextProject}
+              className="absolute right-0 z-10 p-2 rounded-full bg-white/80 shadow-lg hover:bg-white transition-colors"
+              aria-label="Next project"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div className="flex justify-center gap-2 mt-4">
+            {projects.map((_, index) => (
+              <button
                 key={index}
-                {...project}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentIndex ? "bg-black w-4" : "bg-gray-300"
+                }`}
+                aria-label={`Go to project ${index + 1}`}
               />
             ))}
-          </Marquee>
-          <Marquee
-            vertical
-            pauseOnHover
-            className="[--duration:50s] px-2"
-          >
-            {secondRow.map((project, index) => (
-              <ReviewCard
-                key={index}
-                {...project}
-              />
-            ))}
-          </Marquee>
-          <Marquee
-            vertical
-            pauseOnHover
-            className="[--duration:45s] hidden md:flex px-2"
-          >
-            {thirdRow.map((project, index) => (
-              <ReviewCard
-                key={index}
-                {...project}
-              />
-            ))}
-          </Marquee>
+          </div>
         </div>
   
         <AnimatePresence>

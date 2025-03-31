@@ -73,10 +73,10 @@ const StatCard: React.FC<StatCardProps> = ({ number, label }) => {
 
 const Stats: React.FC = () => {
   const stats = [
-    { number: "100", label: "Clients from 17 Countries" },
-    { number: "280", label: "Millions raised for our clients" },
-    { number: "90", label: "Of our clients come back" },
-    { number: "98", label: "Net Promoting Score" },
+    { number: "5+", label: "AI-powered projects launched" },
+    { number: "90%", label: " Client retention rate" },
+    { number: "10+", label: "Countries served" },
+    { number: "1M+", label: " Millions in business impact for our clients" },
   ];
 
   return (

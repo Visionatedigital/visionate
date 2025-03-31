@@ -60,7 +60,7 @@ const Hero = () => {
   const [activeTab, setActiveTab] = useState<TabId>("projects");
   const [activeCategory, setActiveCategory] = useState<CategoryId>("all");
 
-  const clients: Client[] = [
+  const clients = useMemo<Client[]>(() => [
     {
       id: 1,
       name: "Studio Six Inc",
@@ -89,9 +89,9 @@ const Hero = () => {
       description: "AI-enhanced financial platform revolutionizing banking with intelligent fraud detection and personalized recommendations.",
       category: "finance",
     }
-  ];
+  ], []);
 
-  const projects: Project[] = [
+  const projects = useMemo<Project[]>(() => [
     {
       id: 1,
       name: "Afro-Learn",
@@ -152,7 +152,7 @@ const Hero = () => {
       industry: "Transportation & Law Enforcement",
       client: "Government Agency"
     }
-  ];
+  ], []);
 
   const { tabCounts, categoryCounts } = useMemo(() => {
     const projectCount = projects.length;
@@ -221,7 +221,7 @@ const Hero = () => {
       } as TabCounts,
       categoryCounts: categoryCount,
     };
-  }, []);
+  }, [projects, clients]);
 
   const tabs = [
     { id: "projects" as const, name: "Projects", count: tabCounts.projects },

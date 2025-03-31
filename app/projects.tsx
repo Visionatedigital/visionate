@@ -83,7 +83,7 @@ const projects = [
   }
 ];
 
-const Projects = () => {
+const ProjectsSection = () => {
   return (
     <div className="py-20 px-6 mx-auto 2xl:w-4/5 md:px-16">
       <div className="flex justify-between items-center mb-12">
@@ -149,5 +149,5 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectsSection;
   
